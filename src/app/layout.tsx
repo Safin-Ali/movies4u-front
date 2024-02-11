@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/global.css";
-import { Providers } from './_personal/providers';
+import { Providers } from './_provider/providers';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +18,15 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={ inter.className }>
+					<div className={`bg-brand`}>
+						<div>
+							<span className={`text-[#a31826]`}>M</span>
+							<span className={`text-[#ff6f00]`}>4</span>
+							<span className={`text-[#880acc]`}>U</span>
+						</div>
+					</div>
 				<Providers>
-					{ children }
+						{ children }
 				</Providers>
 
 			</body>
