@@ -1,5 +1,6 @@
 'use client';
 import { nav_items } from '@/data/nav-items';
+import { useReactEffect } from '@/hooks/react-useEffect';
 import { Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react';
 import Link from 'next/link';
 import React from 'react';
@@ -9,10 +10,27 @@ export default function Header_Nav() {
 
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+	const [scrollVal,setScrollVal] = React.useState<number>(0);
+
+	const handleScrollPosition = (position:number) => {
+		setScrollVal(position);
+	};
+
+	//set initiale scroll size
+	useReactEffect({
+		callback:() => {
+			if(window) {
+				setScrollVal(scrollY)
+
+			}
+		}
+	})
+
 	return (
 		<Navbar
 			onMenuOpenChange={ setIsMenuOpen }
-			className={ `bg-default-900/10 backdrop-blur` }
+			onScrollPositionChange={handleScrollPosition}
+			className={ `trans_nav ${scrollVal < 60 ? 'bg-default-900/10' : 'bg-default-50/80'}` }
 		>
 
 			<NavbarContent as={ 'div' } className={`xsm:hidden`}>
@@ -84,7 +102,7 @@ export default function Header_Nav() {
 
 			{/* mobile device nav items */ }
 				<NavbarMenu
-				className={`bg-default-900/10`}
+				className={`bg-default-50/30 backdrop-blur-md`}
 				>
 					{
 						nav_items.map((val, idx) => {
