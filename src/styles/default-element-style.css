@@ -2,11 +2,11 @@
 
 @layer base {
 	body {
-		@apply bg-transparent text-white;
+		@apply bg-transparent text-default-900;
 	}
 
 	.bg-brand {
-		@apply overflow-hidden fixed z-[-999] bg-[#0f0f0f] w-full h-screen;
+		@apply overflow-hidden fixed z-[-999] bg-background w-full h-screen;
 	}
 
 	.bg-brand > div {
@@ -15,6 +15,6 @@
 
 	.bg-brand div > span {
 		text-shadow: 10px 2px 50px;
-		@apply text-8xl inline-block blur-sm mx-[20px] font-bold;
+		@apply text-6xl xsm:text-8xl inline-block blur-sm mx-[20px] font-bold;
 	}
 }
