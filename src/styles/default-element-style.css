@@ -15,6 +15,6 @@
 
 	.bg-brand div > span {
 		text-shadow: 10px 2px 50px;
-		@apply text-6xl xsm:text-8xl inline-block blur-sm mx-[20px] font-bold;
+		@apply text-6xl xsm:text-8xl inline-block blur-[6px] mx-[20px] font-bold;
 	}
 }
