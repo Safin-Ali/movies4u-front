@@ -13,6 +13,11 @@ const config: Config = {
 			screens:{
 				'xsm':'686px'
 			},
+			colors:{
+				'brand-1':'#f03346',
+				'brand-2':'#ff6f00',
+				'brand-3':'#880acc',
+			}
 		},
 	},
 	darkMode: "class",

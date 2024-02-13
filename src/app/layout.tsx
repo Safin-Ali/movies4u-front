@@ -20,9 +20,9 @@ export default function RootLayout({
 			<body className={ inter.className }>
 					<div className={`bg-brand`}>
 						<div>
-							<span className={`text-[#a31826]`}>M</span>
-							<span className={`text-[#ff6f00]`}>4</span>
-							<span className={`text-[#880acc]`}>U</span>
+						<span className={ `text-brand-1` }>M</span>
+					<span className={ `text-brand-2` }>4</span>
+					<span className={ `text-brand-3` }>U</span>
 						</div>
 					</div>
 				<Providers>
