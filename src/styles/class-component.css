@@ -1,4 +1,27 @@
 @tailwind components;
 
 @layer components {
+
+	/* header navbar style start */
+	.trans_nav{
+		@apply transition-background relative backdrop-blur;
+	}
+	/* header navbar style end */
+
+	/* card style start */
+	.image-reflect{
+		@apply blur-md absolute inset-0 z-[-1] scale-[1.02] opacity-35 rounded-[14px];
+	}
+	.movie_thumb_rating_badge{
+		@apply w-fit bg-default-900/30 backdrop-blur-md px-1 py-0.5 rounded-full gap-[2px] absolute right-4 top-6;
+	}
+	.star_rotate{
+		@apply text-warning-400 animate-spin-slow;
+	}
+	.movie_thumb_footer{
+		@apply flex-col md:flex-row md:justify-between w-full;
+	}
+	/* card style end */
+
+
 }

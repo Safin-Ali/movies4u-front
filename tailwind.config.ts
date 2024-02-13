@@ -17,6 +17,11 @@ const config: Config = {
 				'brand-1':'#f03346',
 				'brand-2':'#ff6f00',
 				'brand-3':'#880acc',
+			},
+			animation:{
+				'spin-slow': 'spin 8s linear infinite',
+			},
+			keyframes:{
 			}
 		},
 	},
