@@ -3,6 +3,7 @@ import { Button, Card, CardFooter } from '@nextui-org/react';
 import { TiStarFullOutline } from "react-icons/ti";
 import Image from 'next/image';
 import React from 'react';
+import Dynamic_Blur_Image from '../Image/Dynamic_Blur_Image';
 
 interface Props {
 	src: string,
@@ -24,12 +25,13 @@ export default function Movie_Thumb(props: Props) {
 			<div className={ `movie_thumb_container` }>
 
 				{/* thumbnail reflection */ }
-				<Image
+				<Dynamic_Blur_Image
 					src={ src }
 					width={ 240 }
 					height={ 240 }
 					alt={ title + ' thumbnail' }
 					className={ `image-reflect` }
+
 				/>
 				<Card
 					isFooterBlurred
@@ -47,7 +49,7 @@ export default function Movie_Thumb(props: Props) {
 					</div>
 					{/* thumb image*/ }
 					<div>
-						<Image
+						<Dynamic_Blur_Image
 							src={ src }
 							width={ 240 }
 							height={ 240 }
