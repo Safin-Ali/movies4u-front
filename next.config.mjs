@@ -1,14 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	images:{
-		remotePatterns:[
+	async redirects() {
+		return [
 			{
-				protocol:'https',
-				hostname:'image.tmdb.org',
+				source: '/',
+				destination: '/movies', // Matched parameters can be used in the destination
+				permanent: true,
+			},
+		]
+	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'image.tmdb.org',
 			}
 		]
 	},
-	reactStrictMode:false
+	reactStrictMode: false
 };
 
 export default nextConfig;
