@@ -1,17 +1,29 @@
 import { moviesDBApi } from '@/services/http-fetch-ins';
 import React from 'react';
 import Movie_Thumb from '../Card/Movie_Thumb';
-import { Button } from '@nextui-org/react';
+import { Button, Link } from '@nextui-org/react';
 import { IoIosArrowForward } from "react-icons/io";
+import { extract_anime } from '@/utils/common-arr-utils';
 
 interface Props {
 	content_header: string,
 	api: string,
+	path:string,
+	anime?:boolean
 }
 
 export default async function Category_Block(props: Props) {
 
-	const result = (await (await moviesDBApi.get(props.api)).json()).results.slice(0, 5);
+	let result = (await (await moviesDBApi.get(props.api)).json()).results;
+
+	if(result.length) {
+		if(props.anime) {
+			result = extract_anime(result,true).slice(0,5);
+		} else {
+			result = extract_anime(result).slice(0,5);
+		}
+	}
+
 
 	return (
 		<section className={ `px-6 my-5` }>
@@ -28,7 +40,9 @@ export default async function Category_Block(props: Props) {
 							variant={'light'}
 							className={`hover:bg-default-900/10`}
 							radius={'sm'}
+							href={props.path}
 							endContent={<IoIosArrowForward/>}
+							as={Link}
 						>
 							SEE ALL
 						</Button>
