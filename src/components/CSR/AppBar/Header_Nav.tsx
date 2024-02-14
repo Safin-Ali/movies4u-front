@@ -3,6 +3,7 @@ import { nav_items } from '@/data/nav-items';
 import { useReactEffect } from '@/hooks/react-useEffect';
 import { Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react';
 import Link from 'next/link';
+import { useParams, } from 'next/navigation';
 import React from 'react';
 import { IoSearch } from 'react-icons/io5';
 
@@ -25,7 +26,9 @@ export default function Header_Nav() {
 				}
 			}
 		}
-	})
+	});
+
+	const {media} = useParams();
 
 	return (
 		<Navbar
@@ -61,6 +64,7 @@ export default function Header_Nav() {
 				{
 					nav_items.map((val, idx) => {
 						return <NavbarItem
+							className={`${media[0] === val.toLocaleLowerCase() ? 'text-red-600 font-semibold' : ''}`}
 							key={ idx }
 						>
 							<Link
