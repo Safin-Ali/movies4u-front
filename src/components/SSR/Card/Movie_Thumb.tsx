@@ -21,13 +21,13 @@ export default function Movie_Thumb(props: Props) {
 
 	return (
 		<>
-			<div className={ `relative` }>
+			<div className={ `movie_thumb_container` }>
 
 				{/* thumbnail reflection */ }
 				<Image
 					src={ src }
-					width={ 300 }
-					height={ 300 }
+					width={ 240 }
+					height={ 240 }
 					alt={ title + ' thumbnail' }
 					className={ `image-reflect` }
 				/>
@@ -49,8 +49,8 @@ export default function Movie_Thumb(props: Props) {
 					<div>
 						<Image
 							src={ src }
-							width={ 300 }
-							height={ 300 }
+							width={ 240 }
+							height={ 240 }
 							alt={ title + ' thumbnail' }
 						/>
 					</div>

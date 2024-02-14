@@ -36,11 +36,12 @@ export default async function Category_Block(props: Props) {
 				</div>
 			</div>
 
-			<div className={ `g-full-center gap-5 grid-cols-5` }>
+			<div className={ `category_sec_grid` }>
 				{
 					results.slice(0, 5).map((dt: any) => {
 						return (
-							<Movie_Thumb
+
+								<Movie_Thumb
 								key={ dt.id }
 								src={ `https://image.tmdb.org/t/p/original/${dt.poster_path}` }
 								genre={ dt.genre_ids.slice(0, 2) }
