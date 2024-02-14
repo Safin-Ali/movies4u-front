@@ -21,17 +21,33 @@ export default function Header_Nav() {
 	useReactEffect({
 		callback: () => {
 			if (window) {
-				if(!scrollVal && innerWidth > 0 || !scrollVal) {
+				if (!scrollVal && innerWidth > 0 || !scrollVal) {
 					setScrollVal(scrollY)
 				}
 			}
 		}
 	});
 
-	const {media} = useParams();
+	const { media } = useParams();
 
 	return (
 		<Navbar
+			classNames={ {
+				item: [
+					"flex",
+					"relative",
+					"h-full",
+					"items-center",
+					"data-[active=true]:after:content-['']",
+					"data-[active=true]:after:absolute",
+					"data-[active=true]:after:bottom-0",
+					"data-[active=true]:after:left-0",
+					"data-[active=true]:after:right-0",
+					"data-[active=true]:after:h-[2px]",
+					"data-[active=true]:after:rounded-[2px]",
+					"data-[active=true]:after:bg-red-600",
+				],
+			} }
 			onMenuOpenChange={ setIsMenuOpen }
 			onScrollPositionChange={ handleScrollPosition }
 			className={ `trans_nav ${scrollVal < 60 ? 'bg-default-900/10' : 'bg-default-50/80'}` }
@@ -64,7 +80,8 @@ export default function Header_Nav() {
 				{
 					nav_items.map((val, idx) => {
 						return <NavbarItem
-							className={`${media[0] === val.toLocaleLowerCase() ? 'text-red-600 font-semibold' : ''}`}
+							className={ `${media === val.toLocaleLowerCase() ? 'text-red-600 font-semibold' : ''}` }
+							isActive={ media === val.toLocaleLowerCase() }
 							key={ idx }
 						>
 							<Link
@@ -114,6 +131,8 @@ export default function Header_Nav() {
 				{
 					nav_items.map((val, idx) => {
 						return <NavbarMenuItem
+							className={ `${media === val.toLocaleLowerCase() ? 'text-red-600 font-semibold' : ''}` }
+							isActive={ media === val.toLocaleLowerCase() }
 							key={ idx }
 						>
 							<Link
