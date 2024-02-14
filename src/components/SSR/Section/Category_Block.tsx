@@ -11,7 +11,7 @@ interface Props {
 
 export default async function Category_Block(props: Props) {
 
-	const { results } = await (await moviesDBApi.get(props.api)).json();
+	const result = (await (await moviesDBApi.get(props.api)).json()).results.slice(0, 5);
 
 	return (
 		<section className={ `px-6 my-5` }>
@@ -38,7 +38,7 @@ export default async function Category_Block(props: Props) {
 
 			<div className={ `category_sec_grid` }>
 				{
-					results.slice(0, 5).map((dt: any) => {
+					result.map((dt: any) => {
 						return (
 
 								<Movie_Thumb
