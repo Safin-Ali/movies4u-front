@@ -20,8 +20,9 @@ export default function Header_Nav() {
 	useReactEffect({
 		callback: () => {
 			if (window) {
-				setScrollVal(scrollY)
-
+				if(!scrollVal && innerWidth > 0 || !scrollVal) {
+					setScrollVal(scrollY)
+				}
 			}
 		}
 	})
